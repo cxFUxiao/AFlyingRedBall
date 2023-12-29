@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+
+        <TextView
+            android:id="@+id/tv_fraction"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:text="暂无数据"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:background="@drawable/bg_btn1"
+            android:gravity="center"/>
+
+
+
+
+
+
+    </LinearLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tx_t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="飞翔的小红球"
+        android:textColor="@color/teal_700"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:id="@+id/tx_t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="A Flying Red Ball !!!"
+        android:textColor="#F44336"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="65dp"
+        android:paddingRight="65dp"
+        android:paddingTop="65dp">
+
+    <Button
+        android:id="@+id/btn_ST"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始游戏"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_btn1"
+        android:padding="20dp"
+        />
+
+        <Button
+            android:id="@+id/btn_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="帮助"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn1"
+            android:padding="20dp"
+            android:layout_below="@id/btn_ST"
+            />
+
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="关于"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn1"
+            android:padding="20dp"
+            android:layout_below="@id/btn_help"
+            />
+
+        <Button
+            android:id="@+id/btn_db"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="得分榜"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn1"
+            android:padding="20dp"
+            android:layout_below="@+id/btn_about"
+            />
+<![CDATA[
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn1"
+            android:padding="20dp"
+            android:layout_below="@+id/btn_db"
+            />
+ ]]>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+        android:layout_alignParentBottom ="true"
+        android:layout_below="@+id/btn_db">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_marginTop="0dp"
+            android:id="@+id/gif_ball"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ball"
+            />
+
+        <TextView
+            android:id="@+id/tx_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="希望您能喜欢( •̀ ω •́ )✧     祝您玩的开心(≧∇≦)ﾉ     如果您有建议或者意见，欢迎点击此处与作者联系（￣︶￣）↗      "
+            android:textColor="#4E7CA1"
+            android:textSize="18sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+
+            android:layout_below="@+id/gif_ball"
+            android:layout_marginTop="0dp"
+            android:layout_alignParentBottom ="true"
+            />
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+</ScrollView>

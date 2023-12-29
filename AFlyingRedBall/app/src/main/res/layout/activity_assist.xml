@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tx_t1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="飞翔的小红球"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold|italic"
+            android:textSize="40sp"
+            android:layout_marginTop="125dp"/>
+
+        <TextView
+            android:id="@+id/tx_t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="A Flying Red Ball !!!"
+            android:textColor="#F44336"
+            android:textStyle="bold|italic"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tx_t3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="的 帮助页面"
+            android:textColor="#134857"
+            android:textStyle="bold|italic"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:id="@+id/iv_assist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_heart"
+            android:scaleType="center"/>
+
+        <TextView
+            android:id="@+id/tx_t4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="关于这个游戏怎么玩这件事  "
+            android:textColor="#134857"
+            android:textStyle="italic"
+            android:textSize="30sp"
+            android:layout_marginTop="100dp"/>
+
+        <TextView
+            android:id="@+id/tx_t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="请往下看"
+            android:textColor="#134857"
+            android:textSize="25sp"
+            />
+
+        <TextView
+            android:id="@+id/tx_t6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="他是主角↓"
+            android:textColor="#134857"
+            android:textSize="25sp"
+            android:layout_marginTop="100dp"
+            />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:gravity="center"
+            android:layout_marginTop="120dp"
+            android:id="@+id/gif_ball"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ball"
+            android:padding="15dp"
+            />
+
+        <TextView
+            android:id="@+id/tx_t7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="点击屏幕给他加油 使他上升"
+            android:textColor="#134857"
+            android:textSize="25sp"
+            android:layout_marginTop="20dp"
+            />
+        <TextView
+            android:id="@+id/tx_t8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="使他可以在合适的高度度过难关"
+            android:textColor="#134857"
+            android:textSize="25sp"
+            android:layout_marginTop="20dp"
+            />
+        <TextView
+            android:id="@+id/tx_t9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="就是这样"
+            android:textColor="#134857"
+            android:textSize="25sp"
+            android:layout_marginTop="20dp"
+            />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/popo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/popo"
+            android:padding="15dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_assist2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_chance"
+            android:scaleType="fitXY"
+            android:layout_marginTop="400dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

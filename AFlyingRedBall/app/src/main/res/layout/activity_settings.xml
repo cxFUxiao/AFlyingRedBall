@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/tx_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="游戏 设置"
+        android:textColor="#4E7CA1"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        android:layout_marginTop="100dp"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_marginTop="0dp"
+        android:id="@+id/gif_ball"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ball"
+        />
+
+    <RadioGroup
+        android:layout_below="@+id/gif_ball"
+        android:id="@+id/rg_yinliang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_btn1">
+        <RadioButton
+            android:id="@+id/rb_yinKai"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="音效开"
+            android:button="@null"
+            android:background="@drawable/bg_btn1"
+            android:checked="true"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+        <RadioButton
+            android:id="@+id/rb_yinGuan"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="音效关"
+            android:button="@null"
+            android:background="@drawable/bg_btn1"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginLeft="10dp"/>
+    </RadioGroup>
+
+
+    <RadioGroup
+        android:id="@+id/rg_sudu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rg_yinliang"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_btn1">
+        <RadioButton
+            android:id="@+id/suKuai"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="速度快"
+            android:button="@null"
+            android:background="@drawable/bg_btn1"
+            android:checked="true"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+        <RadioButton
+            android:id="@+id/suMan"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="速度慢"
+            android:button="@null"
+            android:background="@drawable/bg_btn1"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginLeft="10dp"/>
+    </RadioGroup>
+
+</RelativeLayout>

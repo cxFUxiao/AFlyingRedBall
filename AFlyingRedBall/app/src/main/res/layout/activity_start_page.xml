@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/touch">
+
+
+    <TextView
+        android:id="@+id/wctx_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="飞翔的小红球"
+        android:textColor="@color/teal_700"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        android:layout_marginTop="125dp"/>
+
+    <TextView
+        android:id="@+id/wctx_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="A Flying Red Ball !!!"
+        android:textColor="#F44336"
+        android:textStyle="bold|italic"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/wctx_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="欢迎！"
+        android:textColor="#144A74"
+        android:textStyle="bold|italic"
+        android:textSize="59sp"
+        android:layout_marginTop="120dp"/>
+
+    <TextView
+        android:id="@+id/wctx_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="祝您玩的开心"
+        android:textColor="#144A74"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        android:layout_marginTop="20dp"/>
+
+
+
+    <TextView
+        android:id="@+id/wctx_ab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ZhangChenhao"
+        android:textColor="#61B2BBBE"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:layout_marginTop="300dp"/>
+    <TextView
+        android:id="@+id/wctx_ab2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="57201825 34"
+        android:textColor="#61B2BBBE"
+        android:textSize="18sp"
+        />
+
+
+</LinearLayout>
