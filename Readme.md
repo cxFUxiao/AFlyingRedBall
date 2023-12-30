@@ -15,8 +15,6 @@ Welcome to discuss. :sunglasses:
 
 _*SCREENSHOT_
 
-![start page](https://github.com/cxFUxiao/AFlyingRedBall/blob/master/pic/1.jpg) 
-
-![home page](https://github.com/cxFUxiao/AFlyingRedBall/blob/master/pic/2.jpg) 
+![start page](https://github.com/cxFUxiao/AFlyingRedBall/blob/master/pic/1.jpg) ![home page](https://github.com/cxFUxiao/AFlyingRedBall/blob/master/pic/2.jpg) 
 
 ![game page](https://github.com/cxFUxiao/AFlyingRedBall/blob/master/pic/3.jpg) 
