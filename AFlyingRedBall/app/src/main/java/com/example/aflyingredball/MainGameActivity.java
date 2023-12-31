@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -25,6 +26,13 @@ import android.view.WindowManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import android.media.AudioManager;
+import android.widget.Toast;
+
+import android.widget.CompoundButton;
+import android.widget.Switch;
+
 
 public class MainGameActivity extends AppCompatActivity {
 
@@ -57,11 +65,78 @@ public class MainGameActivity extends AppCompatActivity {
     boolean flag;
     SoundUtils soundUtils;
 
+    private int originalVolume; // 保存原始音量
+
+    private boolean isSoundOn = true; // 声音开关，默认开启
+
+    // 添加声音开关的方法
+    public void toggleSound() {
+        isSoundOn = !isSoundOn;
+        Toast.makeText(this, isSoundOn ? "声音已开启" : "声音已关闭", Toast.LENGTH_SHORT).show();
+
+        // 更新音效状态
+        if (isSoundOn) {
+            // 恢复音量
+            AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolume, 0);
+        } else {
+            // 静音
+            AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MainActivity.activityList.add(this);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_game);
+
+
+
+        // 获取 Switch 组件实例
+        Switch soundSwitch = findViewById(R.id.soundSwitch);
+
+
+
+
+        // 打印 Switch 对象的引用
+        Log.d("SwitchVisibility", "Switch object: " + soundSwitch);
+
+        // 打印 Switch 的可见性
+        Log.d("SwitchVisibility", "Switch visibility before: " + soundSwitch.getVisibility());
+
+        // 设置 Switch 的可见性为可见
+        soundSwitch.setVisibility(View.VISIBLE);
+
+        // 打印 Switch 的可见性，确保设置成功
+        Log.d("SwitchVisibility", "Switch visibility after: " + soundSwitch.getVisibility());
+
+
+
+
+        // 设置 Switch 的初始状态
+        soundSwitch.setChecked(isSoundOn);
+
+        // 设置 Switch 的点击事件
+        soundSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // 切换声音开关状态
+                toggleSound();
+            }
+        });
+
+
+
+        //开局设置音量
+        /*setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int targetVolume = (int) (0.5 * maxVolume); // 50% 的音量
+        originalVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC); // 保存原始音量
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, targetVolume, 0);*/
 
         //绑定创建的游戏视图
         gameView = new GameView(this);
@@ -88,17 +163,40 @@ public class MainGameActivity extends AppCompatActivity {
         }
 
 
+        public void gameaction(){
+            qiu_y = qiu_y - qiu_upspeed;
+
+            soundUtils.putSound(1, R.raw.duang);
+            soundUtils.playSound(1, SoundUtils.SINGLE_PLAY);
+            //消息
+            handler.sendEmptyMessage(666);
+
+        }
+
+
+
     //返回的时候计分 避免遗漏 返回主页
+    //按键事件增加动作控制
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if //避免重复
-            (iswaste = false) {
-                jifen(); }
+        if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) && event.getAction() == KeyEvent.ACTION_DOWN) {
+            // 处理音量键事件，执行类似点击屏幕的操作
+            gameaction();
+            return true;  // 返回true表示已经处理该事件
+        } else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (!iswaste) {
+                jifen();
+            }
             Intent intent = new Intent(MainGameActivity.this, MainActivity.class);
             startActivity(intent);
-        }return super.onKeyDown(keyCode, event);
+            return true;  // 返回true表示已经处理该事件
+        }
 
+        return super.onKeyDown(keyCode, event);
     }
+
+
+
 
 
     //游戏开局
@@ -197,19 +295,18 @@ public class MainGameActivity extends AppCompatActivity {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
 
-
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                qiu_y = qiu_y - qiu_upspeed;
-                //点击音效
-                //if(sounds.toint()==1){
-            soundUtils.putSound(1, R.raw.duang);
-            soundUtils.playSound(1, SoundUtils.SINGLE_PLAY);//}
-                //消息
-                handler.sendEmptyMessage(666);
+             gameaction();
             }
             return true;
         }
+
+
     };
+
+
+
+
 
     //判断标识启动绘制
     @SuppressLint("HandlerLeak")
@@ -242,7 +339,7 @@ public class MainGameActivity extends AppCompatActivity {
             //画笔属性
             paint.setStyle(Paint.Style.FILL);
             paint.setAntiAlias(true);//抗锯齿
-            //System.setProperty("sun.awt.noerasebackground","true");//玄学抗卡顿？无效
+
 
 
                 //绘制操作
@@ -306,8 +403,25 @@ public class MainGameActivity extends AppCompatActivity {
       //  sound=false;}
 
 
-
+    //恢复音量
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 在 Activity 暂停时，恢复原始音量
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolume, 0);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 在 Activity 销毁时，确保再次恢复原始音量
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolume, 0);
+    }
+}
+
+
 
 
 

@@ -1,5 +1,5 @@
 package com.example.aflyingredball;
-//liseview的Adapter
+//listview的Adapter  得分榜界面
 
 import android.content.Context;
 import android.view.LayoutInflater;

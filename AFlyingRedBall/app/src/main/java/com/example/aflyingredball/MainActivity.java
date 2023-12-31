@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     ImageView imageView = (ImageView) view.findViewById(R.id.iv_toast);
                     TextView textView = (TextView) view.findViewById(R.id.tv_toast);
                     imageView.setImageResource(R.drawable.icon_good);
-                    textView.setText("物联网181 张晨浩");
+                    //textView.setText("github：@exFUxiao");
                     toastCustom.setView(view);
                     toastCustom.setDuration(Toast.LENGTH_LONG);
                     toastCustom.show();
@@ -109,29 +109,37 @@ public class MainActivity extends AppCompatActivity {
     //试一下双击退出
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
-            if((System.currentTimeMillis()-exitTime) > 2000){
-                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP)
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "欸嘿😘", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
-
             } else {
-                finish();
                 exit();
-            }MainActivity.activityList.add(this);
-            return true;
+            }
+            return true; // 表示已处理按键事件
+        } else if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "再次返回退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                exit();
+            }
+            return true; // 表示已处理按键事件
         }
         return super.onKeyDown(keyCode, event);
     }
-    public void exit(){
 
+
+    public void exit()
+    {
         for(Activity act:activityList){
             act.finish();
         }
-        System.exit(0); }
+        MainActivity.activityList.clear();
+        //System.exit(0);
+    }
    //成功了！！！！！！！！
-
-
 
 
 }

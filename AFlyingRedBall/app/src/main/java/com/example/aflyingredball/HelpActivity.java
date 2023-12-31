@@ -27,8 +27,7 @@ public class HelpActivity extends AppCompatActivity {
         mWvMain.setWebViewClient(new MyWebViewClient());
         mWvMain.setWebChromeClient(new MyWebChromeClient());
 //        mWvMain.addJavascriptInterface();
-        mWvMain.loadUrl("https://weibo.com/u/1761272047/home?leftnav=1");
-
+        mWvMain.loadUrl("https://github.com/cxFUxiao");
     }
 
     class MyWebViewClient extends WebViewClient{
